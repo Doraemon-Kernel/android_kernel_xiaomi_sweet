@@ -10,8 +10,8 @@ task:
   only_if: $CIRRUS_REPO_OWNER == 'Doraemon-Kernel'
   container:
     image: dopaemon/bionic:latest
-    cpu: 8
-    memory: 8G
+    cpu: 4
+    memory: 6G
 
   Install_Packages_Ubuntu_script:
     - cd /tmp/ci/
@@ -22,8 +22,8 @@ task:
     - cd /tmp/ci/
     - git clone -b gcc --single-branch https://github.com/Doraemon-Kernel/arm-linux-androideabi-4.9.git
     - git clone -b gcc --single-branch https://github.com/Doraemon-Kernel/aarch64-linux-android-4.9.git
-    - git clone -b master --single-branch https://github.com/kdrag0n/proton-clang.git clang
-    - git clone -b eleven --depth 1 https://github.com/Doraemon-Kernel/android_kernel_xiaomi_sweet.git kernel
+    - git clone -b master --depth="1" https://github.com/kdrag0n/proton-clang.git clang
+    - git clone -b eleven --single-branch https://github.com/Doraemon-Kernel/android_kernel_xiaomi_sweet.git kernel
   Rclone_Configure_script:
     - mkdir -p ~/.config/rclone
     - echo "$rclone_conf" > ~/.config/rclone/rclone.conf
