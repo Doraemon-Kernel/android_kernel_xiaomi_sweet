@@ -621,11 +621,6 @@ config LDO_WL2866D
         ---help---
         This option enables multi ldo wl2866d.
 
-config PERF_HELPER
-	default y
-	help
-	  this module support record perf lock history and other perf messages.
-
 config FORCE_FAST_CHARGE
 	bool "Force faster charge rate for USB"
 	default n
