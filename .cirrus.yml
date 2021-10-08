@@ -1,3 +1,28 @@
+################################################################
+#                            _                                 #
+#                         _ooOoo_                              #
+#                        o8888888o                             #
+#                        88" . "88                             #
+#                        (| -_- |)                             #
+#                        O\  =  /O                             #
+#                     ____/`---'\____                          #
+#                   .'  \\|     |//  `.                        #
+#                  /  \\|||  :  |||//  \                       #
+#                 /  _||||| -:- |||||_  \                      #
+#                 |   | \\\  -  /'| |   |                      #
+#                 | \_|  `\`---'//  |_/ |                      #
+#                 \  .-\__ `-. -'__/-.  /                      #
+#               ___`. .'  /--.--\  `. .'___                    #
+#            ."" '<  `.___\_<|>_/___.' _> \"".                 #
+#           | | :  `- \`. ;`. _/; .'/ /  .' ; |                #
+#           \  \ `-.   \_\_`. _.'_/_/  -' _.' /                #
+# ===========`-.`___`-.__\ \___  /__.-'_.'_.-'================ #
+#                         `=--=-'                              #
+#                                                              #
+#  No Bug - No Error - No Warning - Smooth Build - No Bootloop #
+#                                                              #
+################################################################
+
 env:
     CIRRUS_CLONE_DEPTH: 1
     CIRRUS_WORKING_DIR: "/tmp/ci"
@@ -20,10 +45,10 @@ task:
     - sudo apt-get install -y ccache rclone git-lfs bc bison build-essential ccache curl flex g++-multilib gcc-multilib git gnupg gperf lib32ncurses5-dev lib32readline-dev lib32z1-dev liblz4-tool libncurses5-dev libsdl1.2-dev libssl-dev libwxgtk3.0-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev
   Git_Clone_From_Github_script:
     - cd /tmp/ci/
-    - git clone -b gcc --single-branch https://github.com/Doraemon-Kernel/arm-linux-androideabi-4.9.git
-    - git clone -b gcc --single-branch https://github.com/Doraemon-Kernel/aarch64-linux-android-4.9.git
+    - git clone -b gcc --depth="1" https://github.com/Doraemon-Kernel/arm-linux-androideabi-4.9.git
+    - git clone -b gcc --depth="1" https://github.com/Doraemon-Kernel/aarch64-linux-android-4.9.git
     - git clone -b master --depth="1" https://github.com/kdrag0n/proton-clang.git clang
-    - git clone -b eleven --single-branch https://github.com/Doraemon-Kernel/android_kernel_xiaomi_sweet.git kernel
+    - git clone -b eleven --depth="1" https://github.com/Doraemon-Kernel/android_kernel_xiaomi_sweet.git kernel
   Rclone_Configure_script:
     - mkdir -p ~/.config/rclone
     - echo "$rclone_conf" > ~/.config/rclone/rclone.conf
