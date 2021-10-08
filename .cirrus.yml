@@ -62,3 +62,6 @@ task:
     - export PATH="/tmp/ci/clang/bin:$PATH"
     - make O=out sweet-perf_defconfig ARCH=arm64
     - make -j$(nproc --all) O=out ARCH=arm64 CC=clang CLANG_TRIPLE=aarch64-linux-gnu- CROSS_COMPILE=aarch64-linux-gnu-
+  Check_Directory_script:
+    - cd /tmp/ci/kernel
+    - ls out/arch/arm64/boot
