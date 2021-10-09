@@ -67,3 +67,12 @@ task:
   Check_Directory_script:
     - cd /tmp/ci/kernel
     - ls out/arch/arm64/boot
+  Compile_Flashable_script:
+    - cd /tmp/ci/kernel
+    - mv out/arch/arm64/boot/dtbo.img Doraemon/Flashable/
+    - mv out/arch/arm64/boot/Image.gz-dtb Doraemon/Flashable/
+    - cd Doraemon/Flashable/
+    - zip -rv9 Doraemon-Kernel-Sweet-AOSP-R1.0-Beta.zip Image.gz-dtb META-INF anykernel.sh dtbo.img tools
+  Upload_Flashable_script:
+    - /tmp/ci/kernel/Doraemon/Flashable/
+    - rclone copy -v Doraemon-Kernel-Sweet-AOSP-R1.0-Beta.zip drive:Share/Devices/Sweet/Doraemon-Kernel/AOSP/
