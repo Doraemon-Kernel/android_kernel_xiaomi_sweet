@@ -67,4 +67,3 @@ task:
   Check_Directory_script:
     - cd /tmp/ci/kernel
     - ls out/arch/arm64/boot
-    - ls out/arch/arm64/boot/dts
