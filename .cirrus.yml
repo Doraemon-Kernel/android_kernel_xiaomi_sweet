@@ -74,5 +74,5 @@ task:
     - cd Doraemon/Flashable/
     - zip -rv9 Doraemon-Kernel-Sweet-AOSP-R1.0-Beta.zip Image.gz-dtb META-INF anykernel.sh dtbo.img tools
   Upload_Flashable_script:
-    - /tmp/ci/kernel/Doraemon/Flashable/
+    - cd /tmp/ci/kernel/Doraemon/Flashable/
     - rclone copy -v Doraemon-Kernel-Sweet-AOSP-R1.0-Beta.zip drive:Share/Devices/Sweet/Doraemon-Kernel/AOSP/
